@@ -5,7 +5,7 @@ This repository contains a modified version of Vidur that is used to collect pro
 
 # Setup and Execution Instructions
 
-1. **Build the Docker container (inside `iServe/baselines/Vidur`):**
+1. **Build the Docker container (inside `MaverIQ/baselines/Vidur`):**
 ```bash
 docker build -t vidur_baseline .
 ```
