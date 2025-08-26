@@ -1,7 +1,7 @@
 <!-- Models README -->
 
 # Overview
-This directory contains the models's weight and configuration files the instrustions to donwload them for the HuggingFace library are as follows:
+This directory contains the models's weight and configuration files the instructions to download them for the HuggingFace library are as follows:
 
 0. **GIT Packages Installation:**
 ```bash
@@ -32,8 +32,8 @@ git clone https://huggingface.co/EleutherAI/gpt-j-6b ./gptj/gptj-6b
 3. **Llama-2 Models:**
 The Llama-2 models are governed by the Meta license. In order to download the model weights and tokenizer, follow the instructions in the HuggingFace website:
 
-- Llama-2-7b: https://huggingface.co/meta-llama/Llama-2-7b
-- Llama-2-13b: https://huggingface.co/meta-llama/Llama-2-13b
+- Llama-2-7b: https://huggingface.co/meta-llama/Llama-2-7b-hf
+- Llama-2-13b: https://huggingface.co/meta-llama/Llama-2-13b-hf
 - Llama-2-70b: https://huggingface.co/meta-llama/Llama-2-70b-hf
 
 

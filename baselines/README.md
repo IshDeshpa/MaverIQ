@@ -14,11 +14,11 @@ The directory should have the following structure:
 |   |   |-- accelerate_eval.sh          : Bash script that contains the commands to run the E2E experiments using Accelerate
 |   |   |-- README.md                   : README file for Accelerate
 |   |-- AlpaServe                       : Code for AlpaServe
-|   |   |-- mms                         : Modifidied Version of AlpaServe
+|   |   |-- mms                         : Modified Version of AlpaServe
 |   |   |-- alpaserve_configs.txt       : Deployment Configurations from AlpaServe
 |   |   |-- README.md                   : README file for AlpaServe
 |   |-- Vidur                           : Code for Vidur
-|   |   |-- profilling_outputs          : Results from the profiling step of Vidur
+|   |   |-- profiling_outputs           : Results from the profiling step of Vidur
 |   |   |-- vidur_modified_scripts      : Modified script for Vidur
 |   |   |-- Dockerfile                  : Example Docker file
 |   |   |-- vidur_accuracy_log.txt      : Estimation Results from Vidur
@@ -28,7 +28,7 @@ The directory should have the following structure:
 |   |   |-- README.md                   : README file for Vidur
 |   |   |-- sarathi-serve               : Repository of Sarathi-Serve - Follow instructions in Vidur`s README.md
 |   |   |-- vidur                       : Repository of Vidur - Follow instructions in Vidur`s README.md
-|   |   |-- Vidur_virtualenv            : Virtual enviroment files - Follow instructions in Vidur`s README.md
+|   |   |-- Vidur_virtualenv            : Virtual environment files - Follow instructions in Vidur`s README.md
 ```
 
-For the Vidur baseline we do not include the colmpete code as it requires ~20GB of storage, however we provide detailed instruction of how to build the baseline and reproduce the results (Vidur's README file).
+For the Vidur baseline we do not include the complete code as it requires ~20GB of storage, however we provide detailed instruction of how to build the baseline and reproduce the results (Vidur's README file).

@@ -36,7 +36,7 @@ This repository contains a modified version of AlpaServe that integrates MaverIQ
        - `trace_name` (line 153): Defines the trace name, following MaverIQ trace generation naming conventions. Both parameters are forwarded to `WorkloadFromTrace(ArrivalProcess)`.
 
 4. **Execution and Results:**
-   - We suggest runnning the AlpaServe simulator from within a Docker container, so the instalation of MaverIQ is not affected. Instructions of how to build a Docker container can be found on the `baselines/Vidur` README file.
+   - We suggest running the AlpaServe simulator from within a Docker container, so the installation of MaverIQ is not affected. Instructions of how to build a Docker container can be found on the `baselines/Vidur` README file.
    - After configuring parameters, execute the simulation form within `AlpaServe/mms/tests/serve`:
      ```bash
      python test_placement_policy_dummy.py

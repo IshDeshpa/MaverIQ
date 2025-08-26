@@ -3,30 +3,60 @@
 # MaverIQ: Fingerprint-Guided Extrapolation and Fragmentation-Aware Layering for Intent-Based LLM Serving
 This is the official repository of MaverIQ. It contains all information, data, and code related to the project.
 
-MaverIQ is an inference serving system, build atop [TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM), that translates the user intnent into a specific deployment configuration and deploys using its load-aware algorithm which can identify and utilize efficiently the fragmented GPU memory in the cluster.
+MaverIQ is an inference serving system, build atop [TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM), that translates the user intent into a specific deployment configuration and deploys using its load-aware algorithm which can identify and utilize efficiently the fragmented GPU memory in the cluster.
 
 Our contributions include:
 - We introduce LLM fingerprints, a compact proxy that captures the essence of the model, enabling lightweight profiling.
 - We are the first to formulate an analytical model that accurately captures the effects of parallelism techniques on inference latency for LLMs. Combining both fingerprints and analytical models, MaverIQ reduces profiling cost by 7-15× while reducing estimation error by 1.3-1.7×.
-- We are the first to show that we can unevenly distribute LLM layers across GPUs to utilize fragmented resources without harming inference latency. This technique reduces operational cost by up to 2×
+- We are the first to show that we can unevenly distribute LLM layers across GPUs to utilize fragmented resources without harming inference latency. This technique reduces operational cost by up to 2×.
 - We build MaverIQ atop TensorRT-LLM and show that under strict accuracy requirements, MaverIQ reduces latency by 28-45% for the user while reducing operational cost by 3.8-8.3× for the provider. Under lower accuracy requirements, MaverIQ can exploit compression techniques to further reduce both user cost and latency by about 72%.
 
 <br>
 
 # Setup Instructions
 To build the source code of MaverIQ, users must execute the following steps:
+- To avoid package conflicts and crashes during the initial installation, we strongly suggest using a Docker container for the installation of MaverIQ:
+```bash
+# Instal nvidia-container-toolkit:
+sudo apt-get install -y nvidia-container-toolkit
+
+# Build the Docker container:
+docker build -t <name_of_image> MaverIQ/environment
+
+# Initialize Docker container:
+docker run --rm --runtime=nvidia --gpus all --shm-size=10.24gb --entrypoint /bin/bash -it <name_of_image>
+
+# Create and activate a virtual environment inside the container:
+virtualenv -p /usr/bin/python3 /workspace/my_env
+source /workspace/my_env/bin/activate
+```
+
 - Install TensorRT-LLM and required packages:
 ```bash
 apt-get update && apt-get -y install python3.10 python3-pip openmpi-bin libopenmpi-dev
+pip3 install MaverIQ/environment/nvidia_ammo-0.7.4.post1-py3-none-any.whl
 pip3 install tensorrt_llm==0.9.0.dev2024022000 -U --pre --extra-index-url https://pypi.nvidia.com
 pip3 install -r MaverIQ/TensorRT-LLM/requirements_MaverIQ.txt
 ```
+
+- Ensure CUDA is installed and update it:
+```bash
+python -m pip uninstall -y cuda || true
+python -m pip install --no-cache-dir "cuda-python>=12,<13"
+```
+
+- Allow OpenMPI to run as root (if required):
+```bash
+export OMPI_ALLOW_RUN_AS_ROOT=1
+export OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1
+```
+
 - Find the `location` of the installation:
 ```bash
 pip3 show tensorrt_llm
 ```
 
-- Ovewrite installation with custom version of TensorRT-LLM:
+- Overwrite installation with custom version of TensorRT-LLM:
 ```bash
 cp -r MaverIQ/TensorRT-LLM/tensorrt_llm/ <location>
 ```
@@ -39,7 +69,7 @@ To execute the end-to-end experiments we provide the `tools/controller/MaverIQ_e
 python3 tools/controller/MS_controller.py
 ```
 After initializing the controller, users can interact with it by using the following supported APIs:
-- Registaring a new model:
+- Registering a new model:
     ```bash
     register <model_name>
     ```
@@ -71,7 +101,7 @@ After initializing the controller, users can interact with it by using the follo
     Ctrl+C
     ```
 
-The controller contains commands to automaticaly build the computational graph required from TensorRT-LLM. However, to reduce overhead when executing the end-to-end expiremnts we advice that users pre-build the graphs in advance. The easiest way to do so is by executing ecah script twice, once to ensure that the graphs are build and a second time to gather the results for post-execution analysis.
+The controller contains commands to automatically build the computational graph required from TensorRT-LLM. However, to reduce overhead when executing the end-to-end experiments we advice that users pre-build the graphs in advance. The easiest way to do so is by executing each script twice, once to ensure that the graphs are build and a second time to gather the results for post-execution analysis.
 
 <br>
 
@@ -82,6 +112,7 @@ The repository should have the following structure:
 |-- MaverIQ             : Directory that contains the complete implementation of MaverIQ
 |   |-- baselines       : Directory for baselines used in the end-to-end evaluation
 |   |-- datasets        : Directory with the Datasets used for the experiments
+|   |-- environment     : Directory with required script and tools to install MaverIQ
 |   |-- models          : Directory to store the model`s weight
 |   |-- outputs         : Directory to store output results
 |   |-- TensorRT-LLM    : Directory of modified TensorRT-LLM implementation
