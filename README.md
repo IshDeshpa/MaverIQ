@@ -123,7 +123,7 @@ The repository should have the following structure:
 Each directory contains its own unique README file. For more information please see the related files.
 
 # Citation
-If you find this repo helpful for your research, please consider citing our [paper](https://ut-sysml.ece.utexas.edu/publications/prints/sc2025_liakopoulos.pdf):
+If you find our work helpful for your research, please consider citing our [paper](https://ut-sysml.ece.utexas.edu/publications/prints/sc2025_liakopoulos.pdf):
 
 ```bibtex
 @inproceedings{Liakopoulos2025MaverIQ,
