@@ -1,7 +1,7 @@
 <!-- MaverIQ README -->
 
 # MaverIQ: Fingerprint-Guided Extrapolation and Fragmentation-Aware Layering for Intent-Based LLM Serving
-This is the official repository of MaverIQ. It contains all information, data, and code related to the project.
+This is the official repository of [MaverIQ](https://ut-sysml.ece.utexas.edu/publications/prints/sc2025_liakopoulos.pdf) (accepted at SC'25).It contains all information, data, and code related to the project.
 
 MaverIQ is an inference serving system, build atop [TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM), that translates the user intent into a specific deployment configuration and deploys using its load-aware algorithm which can identify and utilize efficiently the fragmented GPU memory in the cluster.
 
@@ -121,3 +121,15 @@ The repository should have the following structure:
 ```
 
 Each directory contains its own unique README file. For more information please see the related files.
+
+# Citation
+If you find this repo helpful for your research, please consider citing our [paper](https://ut-sysml.ece.utexas.edu/publications/prints/sc2025_liakopoulos.pdf):
+
+```bash
+@inproceedings{Liakopoulos2025MaverIQ,
+title = {MaverIQ: Fingerprint-Guided Extrapolation and Fragmentation-Aware Layering for Intent-Based LLM Serving},
+author = {Liakopoulos, Dimitrios and Sinha, Prasoon and Hu, Tianrui and Lee, Myungjin and Yadwadkar, Neeraja J.},
+booktitle = {Proceedings of the International Conference for High Performance Computing, Networking, Storage and Analysis (SC ’25)},
+year = {2025},
+}
+```
