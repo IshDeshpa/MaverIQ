@@ -125,7 +125,7 @@ Each directory contains its own unique README file. For more information please 
 # Citation
 If you find this repo helpful for your research, please consider citing our [paper](https://ut-sysml.ece.utexas.edu/publications/prints/sc2025_liakopoulos.pdf):
 
-```bash
+```bibtex
 @inproceedings{Liakopoulos2025MaverIQ,
   title = {MaverIQ: Fingerprint-Guided Extrapolation and Fragmentation-Aware Layering for Intent-Based LLM Serving},
   author = {Liakopoulos, Dimitrios and Sinha, Prasoon and Hu, Tianrui and Lee, Myungjin and Yadwadkar, Neeraja J.},
