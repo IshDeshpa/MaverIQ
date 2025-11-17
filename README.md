@@ -129,7 +129,7 @@ If you find our work helpful for your research, please consider citing our [pape
 @inproceedings{Liakopoulos2025MaverIQ,
   title = {MaverIQ: Fingerprint-Guided Extrapolation and Fragmentation-Aware Layering for Intent-Based LLM Serving},
   author = {Liakopoulos, Dimitrios and Sinha, Prasoon and Hu, Tianrui and Lee, Myungjin and Yadwadkar, Neeraja J.},
-  booktitle = {Proceedings of the International Conference for High Performance Computing, Networking, Storage and Analysis (SC ’25)},
-  year = {2025},
+  booktitle = {Proceedings of the International Conference for High Performance Computing, Networking, Storage and Analysis},
+  year = {2025}
 }
 ```
