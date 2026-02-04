@@ -5,7 +5,11 @@ FROM nvidia/cuda:12.2.0-devel-ubuntu22.04
 RUN apt-get update && apt-get install -y \
     build-essential \
     python3 \
+    openmpi-bin \
+    libopenmpi-dev \
     python3-pip \
+    git \
+    git-lfs \
     && rm -rf /var/lib/apt/lists/*
 
 # Set Python 3.10 as the default python and upgrade pip
